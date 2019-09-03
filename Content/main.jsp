@@ -15,7 +15,7 @@ table, th, tr, td{
 </style>
 </head>
 <body>
-<h3>~님 안녕하세요</h3>
+<h3><%= session.getAttribute("id")%>님 안녕하세요</h3>
 <table >
 	<tr>
 		<th>번호</th>
