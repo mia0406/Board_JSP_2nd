@@ -7,6 +7,9 @@ public class UsersVO {
 	String password;
 	String name;
 	
+	public UsersVO() {
+	}
+	
 	public UsersVO(String id, String password, String name) {
 		this.id=id;
 		this.password=password;

@@ -12,6 +12,10 @@ public class ArticleVO {
 	int hit;
 	int recommand;
 	
+	public ArticleVO() {
+		
+	}
+	
 	public ArticleVO(int num, String title, String writer, String content, Date writeDate, int hit, int recommand) {
 
 		this.num=num;
