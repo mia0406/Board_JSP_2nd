@@ -20,7 +20,7 @@
 		</tr>
 		<tr>
 			<td><input type="submit" value="로그인"></td>
-			<td><button type="button" onclick="location.href='joinForm.jsp'">회원가입</button></td>
+			<td><button type="button" onclick="location.href='registerForm.jsp'">회원가입</button></td>
 		</tr>
 	</table>
 </form>
