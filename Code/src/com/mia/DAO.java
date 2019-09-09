@@ -78,4 +78,38 @@ public class DAO {
 		
 		return list;
 	}
+	
+	public int registerUser(String user, String password, String name) {
+		
+		int result = 0;
+		Connection conn = dbconnect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement("INSERT INTO USERS VALUES ("+ user + ", " + password + ", " + name + ")");
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			
+		}finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+		
+		return result;
+	}
+	
+	public ArticleVO selectOneArticle() {
+		
+		ArticleVO article = new ArticleVO();
+		
+		return article;
+	}
+	
+	public int UpdateArticle() {
+		
+		int result=0;
+		
+		return result;	
+	}
 }
