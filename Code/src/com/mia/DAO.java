@@ -102,8 +102,28 @@ public class DAO {
 	public ArticleVO selectOneArticle() {
 		
 		ArticleVO article = new ArticleVO();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		Connection conn = dbconnect.getConnection();
+		
+		try {	
+			pstmt=conn.prepareStatement("");
+			rs=pstmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBClose.close(conn, pstmt, rs);
+		}
 		
 		return article;
+	}
+	
+	public int WriteArticle() {
+		
+		int result=0;
+		
+		return result;
 	}
 	
 	public int UpdateArticle() {
@@ -113,7 +133,21 @@ public class DAO {
 		return result;	
 	}
 	
+	public int DeleteArticle() {
+		
+		int result=0;
+		
+		return result;
+	}
+	
 	public int UpdateCnt() {
+		
+		int result=0;
+		
+		return result;
+	}
+	
+	public int UpdateHit() {
 		
 		int result=0;
 		
