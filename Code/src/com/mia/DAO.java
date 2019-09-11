@@ -112,4 +112,11 @@ public class DAO {
 		
 		return result;	
 	}
+	
+	public int UpdateCnt() {
+		
+		int result=0;
+		
+		return result;
+	}
 }
