@@ -87,7 +87,7 @@ public class DAO {
 		ResultSet rs = null;
 		
 		try {
-			pstmt = conn.prepareStatement("INSERT INTO USERS VALUES ("+ user + ", " + password + ", " + name + ")");
+			pstmt = conn.prepareStatement("INSERT INTO USERS VALUES ('"+ user + "', '" + password + "', '" + name + "')");
 			result = pstmt.executeUpdate();
 			
 		}catch(Exception e) {
@@ -99,18 +99,30 @@ public class DAO {
 		return result;
 	}
 	
-	public ArticleVO selectOneArticle() {
+	public ArticleVO selectOneArticle(int num) {
 		
 		ArticleVO article = new ArticleVO();
+		Connection conn = dbconnect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
-		Connection conn = dbconnect.getConnection();
-		
-		try {	
-			pstmt=conn.prepareStatement("");
+
+		try {
+			
+			pstmt=conn.prepareStatement("SELECT * FROM ARTICLE WHERE NUM=?");
+			pstmt.setInt(1, num);
 			rs=pstmt.executeQuery();
-		} catch (SQLException e) {
+			
+			while(rs.next()) {
+				
+				article.setNum(rs.getInt("NUM"));
+				article.setTitle(rs.getString("TITLE"));
+				article.setContent(rs.getString("CONTENT"));
+				article.setWriter(rs.getString("WRITER"));
+				article.setHit(rs.getInt("HITS"));
+				article.setRecommand(rs.getInt("RECOMMAND"));
+			}
+			
+		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			DBClose.close(conn, pstmt, rs);
@@ -119,23 +131,65 @@ public class DAO {
 		return article;
 	}
 	
-	public int WriteArticle() {
-		
-		int result=0;
-		
-		return result;
-	}
-	
 	public int UpdateArticle() {
 		
 		int result=0;
+		Connection conn = dbconnect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			pstmt=conn.prepareStatement("");
+			result=pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBClose.close(conn, pstmt, rs);
+		}
 		
 		return result;	
+	}
+	
+	public int WriteArticle() {
+		
+		int result=0;
+		Connection conn = dbconnect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			pstmt=conn.prepareStatement("");
+			result=pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+		
+		return result;
 	}
 	
 	public int DeleteArticle() {
 		
 		int result=0;
+		Connection conn = dbconnect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			pstmt=conn.prepareStatement("");
+			result=pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBClose.close(conn, pstmt, rs);
+		}
 		
 		return result;
 	}
@@ -143,6 +197,20 @@ public class DAO {
 	public int UpdateCnt() {
 		
 		int result=0;
+		Connection conn = dbconnect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			pstmt=conn.prepareStatement("");
+			result=pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBClose.close(conn, pstmt, rs);
+		}
 		
 		return result;
 	}
@@ -150,6 +218,62 @@ public class DAO {
 	public int UpdateHit() {
 		
 		int result=0;
+		Connection conn = dbconnect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			pstmt=conn.prepareStatement("");
+			result=pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+		
+		return result;
+	}
+	
+	public int UpdateRecommand() {
+		
+		int result=0;
+		Connection conn = dbconnect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			pstmt=conn.prepareStatement("");
+			result=pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+		
+		return result;
+	}
+	
+	public int DeleteRecommand() {
+		
+		int result=0;
+		Connection conn = dbconnect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			pstmt=conn.prepareStatement("");
+			result=pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBClose.close(conn, pstmt, rs);
+		}
 		
 		return result;
 	}

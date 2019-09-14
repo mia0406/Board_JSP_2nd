@@ -1,16 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.mia.ArticleVO" %>
 <jsp:useBean id="dao" class="com.mia.DAO" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>JSP MVC 게시판 - 게시판 글</title>
+<style>
+table tr td{
+
+	border : 1px solid;
+}
+</style>
 </head>
 <body>
 <% 
 	String num = request.getParameter("num");
+	ArticleVO article = dao.selectOneArticle(Integer.parseInt(num));
+	
 %>
-<h2>article.jsp</h2>
+<table>
+	<tr>
+		<td>번호</td>
+		<td><%= article.getNum()%></td>
+	</tr>
+	<tr>
+		<td>제목</td>
+		<td><%= article.getTitle()%></td>
+	</tr>
+	<tr>
+		<td>작성자</td>
+		<td><%= article.getWriter()%></td>
+	</tr>
+	<tr>
+		<td>조회수</td>
+		<td><%= article.getHit()%></td>
+	</tr>
+	<tr>
+		<td>추천수</td>
+		<td><%= article.getRecommand()%></td>
+	</tr>
+	<tr>
+		<td>내용</td>
+		<td><%= article.getContent()%></td>
+	</tr>
+</table>
+<button onclick="location.href='modifyForm.jsp'">수정</button>
+<button onclick="location.href='main.jsp'">뒤로</button>
 </body>
 </html>
