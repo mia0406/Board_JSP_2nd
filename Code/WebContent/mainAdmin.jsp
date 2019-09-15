@@ -32,7 +32,7 @@ table, th, tr, td{
 %>
 	<tr>
 		<td><%= list.get(i).getNum()%></td>
-		<td><%= list.get(i).getTitle()%></td>
+		<td><a href="article.jsp?num=<%= list.get(i).getNum()%>"><%= list.get(i).getTitle()%></a></td>
 		<td><%= list.get(i).getWriter()%></td>
 		<td><%= list.get(i).getWriteDate()%></td>
 		<td><%= list.get(i).getHit()%></td>

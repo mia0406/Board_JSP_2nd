@@ -53,7 +53,7 @@ public class DAO {
 		
 		try {
 			
-			pstmt=conn.prepareStatement("SELECT * FROM ARTICLE");
+			pstmt=conn.prepareStatement("SELECT * FROM ARTICLE order by NUM");
 			rs=pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -118,6 +118,7 @@ public class DAO {
 				article.setTitle(rs.getString("TITLE"));
 				article.setContent(rs.getString("CONTENT"));
 				article.setWriter(rs.getString("WRITER"));
+				article.setWriteDate(rs.getDate("WRITEDATE"));
 				article.setHit(rs.getInt("HITS"));
 				article.setRecommand(rs.getInt("RECOMMAND"));
 			}
@@ -152,7 +153,7 @@ public class DAO {
 		return result;	
 	}
 	
-	public int WriteArticle() {
+	public int WriteArticle(String title, String writer, String content) {
 		
 		int result=0;
 		Connection conn = dbconnect.getConnection();
@@ -160,8 +161,7 @@ public class DAO {
 		ResultSet rs = null;
 		
 		try {
-			
-			pstmt=conn.prepareStatement("");
+			pstmt=conn.prepareStatement("INSERT INTO ARTICLE VALUES ((SELECT MAX(NUM)+1 FROM ARTICLE), '"+ title +"', '"+ writer +"', '"+ content +"', sysdate, 0, 0)");
 			result=pstmt.executeUpdate();
 			
 		}catch(Exception e) {

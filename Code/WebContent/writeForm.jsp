@@ -7,8 +7,13 @@
 <title>JSP MVC 게시판 - 글쓰기</title>
 </head>
 <body>
-<h3>writeForm.jsp</h3>
-<button onclick="location.href='write.jsp'">완료</button>
+<form action="write.jsp" method="post"><br/>
+제목 : <input type="text" id="title" name="title" /><br/>
+작성자 : <input type="text" id="writer" name="writer" /><br/>
+내용 : <input type="text" id="content" name="content" /><br/>
+<input type="submit" value="작성" />
+</form>
+
 <% 
 	//System.out.println(session.getAttribute("id"));
 	if((session.getAttribute("id")).equals(null)){

@@ -34,6 +34,10 @@ table tr td{
 		<td><%= article.getWriter()%></td>
 	</tr>
 	<tr>
+		<td>작성날짜</td>
+		<td><%= article.getWriteDate()%></td>
+	</tr>
+	<tr>
 		<td>조회수</td>
 		<td><%= article.getHit()%></td>
 	</tr>
@@ -48,5 +52,12 @@ table tr td{
 </table>
 <button onclick="location.href='modifyForm.jsp'">수정</button>
 <button onclick="location.href='main.jsp'">뒤로</button>
+<%
+if(session.getAttribute("id").equals("admin")){
+%>
+	<button onclick="location.href='deleteArticle.jsp'">삭제</button>	
+<% 
+}
+%>
 </body>
 </html>
