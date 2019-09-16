@@ -132,7 +132,7 @@ public class DAO {
 		return article;
 	}
 	
-	public int UpdateArticle() {
+	public int UpdateArticle(String title, String content) {
 		
 		int result=0;
 		Connection conn = dbconnect.getConnection();
@@ -141,7 +141,9 @@ public class DAO {
 		
 		try {
 			
-			pstmt=conn.prepareStatement("");
+			pstmt=conn.prepareStatement("UPDATE ARTICLE SET TITLE=? CONTENT=?");
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
 			result=pstmt.executeUpdate();
 			
 		}catch(Exception e) {
@@ -173,7 +175,7 @@ public class DAO {
 		return result;
 	}
 	
-	public int DeleteArticle() {
+	public int DeleteArticle(int num) {
 		
 		int result=0;
 		Connection conn = dbconnect.getConnection();
@@ -182,7 +184,8 @@ public class DAO {
 		
 		try {
 			
-			pstmt=conn.prepareStatement("");
+			pstmt=conn.prepareStatement("DELETE FROM ARTICLE WHERE num=?");
+			pstmt.setInt(1, num);
 			result=pstmt.executeUpdate();
 			
 		}catch(Exception e) {
@@ -194,7 +197,7 @@ public class DAO {
 		return result;
 	}
 	
-	public int UpdateCnt() {
+	public int UpdateHit(int num) {
 		
 		int result=0;
 		Connection conn = dbconnect.getConnection();
@@ -203,7 +206,9 @@ public class DAO {
 		
 		try {
 			
-			pstmt=conn.prepareStatement("");
+			pstmt=conn.prepareStatement("UPDATE FROM ARTICLE SET hits=? WHERE num=?");
+			pstmt.setInt(1, );
+			pstmt.setInt(2, num);
 			result=pstmt.executeUpdate();
 			
 		}catch(Exception e) {
@@ -215,7 +220,7 @@ public class DAO {
 		return result;
 	}
 	
-	public int UpdateHit() {
+	public int UpdateRecommand(int num) {
 		
 		int result=0;
 		Connection conn = dbconnect.getConnection();
@@ -224,7 +229,9 @@ public class DAO {
 		
 		try {
 			
-			pstmt=conn.prepareStatement("");
+			pstmt=conn.prepareStatement("UPDATE FROM ARTICLE SET recommand=? WHERE num=?");
+			pstmt.setInt(1, );
+			pstmt.setInt(2, num);
 			result=pstmt.executeUpdate();
 			
 		}catch(Exception e) {
@@ -236,7 +243,7 @@ public class DAO {
 		return result;
 	}
 	
-	public int UpdateRecommand() {
+	public int DeleteRecommand(int num) {
 		
 		int result=0;
 		Connection conn = dbconnect.getConnection();
@@ -245,28 +252,9 @@ public class DAO {
 		
 		try {
 			
-			pstmt=conn.prepareStatement("");
-			result=pstmt.executeUpdate();
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			DBClose.close(conn, pstmt, rs);
-		}
-		
-		return result;
-	}
-	
-	public int DeleteRecommand() {
-		
-		int result=0;
-		Connection conn = dbconnect.getConnection();
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		try {
-			
-			pstmt=conn.prepareStatement("");
+			pstmt=conn.prepareStatement("UPDATE FROM ARTICLE SET recommand=? WHERE num=?");
+			pstmt.setInt(1, );
+			pstmt.setInt(2, num);
 			result=pstmt.executeUpdate();
 			
 		}catch(Exception e) {
