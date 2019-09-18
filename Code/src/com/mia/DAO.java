@@ -205,12 +205,12 @@ public class DAO {
 		ResultSet rs = null;
 		
 		try {
-			
-			pstmt=conn.prepareStatement("UPDATE FROM ARTICLE SET hits=? WHERE num=?");
+			/*
+			pstmt=conn.prepareStatement("UPDATE ARTICLE SET hits=? WHERE num=?");
 			pstmt.setInt(1, );
 			pstmt.setInt(2, num);
 			result=pstmt.executeUpdate();
-			
+			*/
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -229,11 +229,20 @@ public class DAO {
 		
 		try {
 			
-			pstmt=conn.prepareStatement("UPDATE FROM ARTICLE SET recommand=? WHERE num=?");
+			pstmt=conn.prepareStatement("SELECT RECOMMAND FROM ARTICLE WHERE num=?");
+			pstmt.setInt(1, num);
+			rs=pstmt.executeQuery();
+			
+			int recommand=rs.getInt("RECOMMAND");
+			
+			System.out.println("recommand = " + recommand);
+			/*
+			pstmt=conn.prepareStatement("UPDATE ARTICLE SET recommand=? WHERE num=?");
+			
 			pstmt.setInt(1, );
 			pstmt.setInt(2, num);
 			result=pstmt.executeUpdate();
-			
+			*/
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -251,12 +260,12 @@ public class DAO {
 		ResultSet rs = null;
 		
 		try {
-			
-			pstmt=conn.prepareStatement("UPDATE FROM ARTICLE SET recommand=? WHERE num=?");
+			/*
+			pstmt=conn.prepareStatement("UPDATE ARTICLE SET recommand=? WHERE num=?");
 			pstmt.setInt(1, );
 			pstmt.setInt(2, num);
 			result=pstmt.executeUpdate();
-			
+			*/
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {

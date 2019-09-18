@@ -51,13 +51,7 @@ table tr td{
 	</tr>
 </table>
 <button onclick="location.href='modifyForm.jsp'">수정</button>
+<button onclick="location.href=updateRecommand.jsp">추천</button>
 <button onclick="location.href='main.jsp'">뒤로</button>
-<%
-if(session.getAttribute("id").equals("admin")){
-%>
-	<button onclick="location.href='deleteArticle.jsp'">삭제</button>	
-<% 
-}
-%>
 </body>
 </html>
