@@ -247,8 +247,6 @@ public class DAO {
 			while(rs.next()) {
 				recommand=rs.getInt("RECOMMAND");
 			}
-					
-			//System.out.println("recommand = " + recommand);
 			
 			pstmt=conn.prepareStatement("UPDATE ARTICLE SET recommand=? WHERE num=?");
 			
@@ -272,12 +270,21 @@ public class DAO {
 		ResultSet rs = null;
 		
 		try {
-			/*
+			
+			pstmt=conn.prepareStatement("SELECT RECOMMAND FROM ARTICLE WHERE num=?");
+			pstmt.setInt(1, num);
+			rs=pstmt.executeQuery();
+			
+			int recommand=0;
+			
+			while(rs.next()) {
+				recommand=rs.getInt("RECOMMAND");
+			}
+			
 			pstmt=conn.prepareStatement("UPDATE ARTICLE SET recommand=? WHERE num=?");
-			pstmt.setInt(1, );
+			pstmt.setInt(1, recommand-1);
 			pstmt.setInt(2, num);
 			result=pstmt.executeUpdate();
-			*/
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {

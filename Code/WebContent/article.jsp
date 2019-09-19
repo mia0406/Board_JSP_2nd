@@ -50,7 +50,7 @@ table tr td{
 		<td><%= article.getContent()%></td>
 	</tr>
 </table>
-<button onclick="location.href='modifyForm.jsp'">수정</button>
+<button onclick="location.href='modifyForm.jsp?num=<%= num%>'">수정</button>
 <button onclick="location.href='updateRecommand.jsp?num=<%= num%>'">추천</button>
 <button onclick="location.href='main.jsp'">뒤로</button>
 </body>
