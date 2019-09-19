@@ -51,7 +51,7 @@ table tr td{
 	</tr>
 </table>
 <button onclick="location.href='modifyForm.jsp'">수정</button>
-<button onclick="location.href=updateRecommand.jsp">추천</button>
+<button onclick="location.href='updateRecommand.jsp?num=<%= num%>'">추천</button>
 <button onclick="location.href='main.jsp'">뒤로</button>
 </body>
 </html>
