@@ -13,7 +13,7 @@
 	String title=request.getParameter("title");
 	String content=request.getParameter("content");
 	
-	int result=dao.UpdateArticle(title, content);
+	int result=dao.UpdateArticle(Integer.parseInt(num), title, content);
 	
 	if(result!=0){
 		

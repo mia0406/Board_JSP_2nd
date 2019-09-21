@@ -52,6 +52,15 @@ table tr td{
 </table>
 <button onclick="location.href='modifyForm.jsp?num=<%= num%>'">수정</button>
 <button onclick="location.href='updateRecommand.jsp?num=<%= num%>'">추천</button>
+
+<%
+	if(session.getAttribute("id").equals(article.getWriter())){
+%>
+		<button onclick="location.href='delete.jsp?num=<%= num%>'">삭제</button>
+<% 
+	}
+%>
+
 <button onclick="location.href='main.jsp'">뒤로</button>
 </body>
 </html>

@@ -62,7 +62,6 @@ public class DAO {
 				article.setNum(rs.getInt("num"));
 				article.setTitle(rs.getString("title"));
 				article.setWriter(rs.getString("writer"));
-				//article.setContent(rs.getString("content"));
 				article.setWriteDate(rs.getDate("writedate"));
 				article.setHit(rs.getInt("hits"));
 				article.setRecommand(rs.getInt("recommand"));
@@ -132,18 +131,18 @@ public class DAO {
 		return article;
 	}
 	
-	public int UpdateArticle(String title, String content) {
+	public int UpdateArticle(int num,String title, String content) {
 		
 		int result=0;
 		Connection conn = dbconnect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		try {
-			
-			pstmt=conn.prepareStatement("UPDATE ARTICLE SET TITLE=? CONTENT=?");
+		try {			
+			pstmt=conn.prepareStatement("UPDATE ARTICLE SET TITLE=?, CONTENT=? WHERE num=?");
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
+			pstmt.setInt(3, num);
 			result=pstmt.executeUpdate();
 			
 		}catch(Exception e) {
