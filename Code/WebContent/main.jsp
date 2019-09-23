@@ -12,11 +12,30 @@
 table, th, tr, td{
 	border: 1px solid #444444;
 }
+
+#upperTable{
+	border: 1px solid blue;
+}
 </style>
 </head>
 <body>
 <h3><%= session.getAttribute("id")%>님 안녕하세요</h3>
-<table >
+<table id="upperTable">
+<% 
+	List<ArticleVO> upperList = dao.selectUpperArticles();
+
+	for(int i=0;i<upperList.size();i++){
+%>
+		<tr style="color:blue;">
+			<td>추천 <%= i+1%></td>
+			<td><a href="article.jsp?num=<%= upperList.get(i).getNum()%>"><%= upperList.get(i).getTitle()%></a></td>
+			<td><%= upperList.get(i).getWriter()%></td>
+		</tr>
+<% 		
+	}
+%>
+</table>
+<table>
 	<tr>
 		<th>번호</th>
 		<th>제목</th>
