@@ -45,5 +45,12 @@ table, th, tr, td{
 <br>
 <button onclick="location.href='writeForm.jsp'">글쓰기</button>
 <button onclick="location.href='logout.jsp'">로그아웃</button>
+<% 
+	if(session.getAttribute("id").equals("admin")){
+%>
+		<button onclick="location.href='userList.jsp'">사용자 관리</button>
+<% 	
+	}
+%>
 </body>
 </html>

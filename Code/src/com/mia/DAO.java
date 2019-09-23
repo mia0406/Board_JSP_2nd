@@ -98,6 +98,38 @@ public class DAO {
 		return result;
 	}
 	
+	public List<UsersVO> selectAllUsers(){
+		
+		List<UsersVO> users = new ArrayList<UsersVO>();
+		Connection conn = dbconnect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			pstmt=conn.prepareStatement("SELECT * FROM USERS");
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				UsersVO user = new UsersVO();
+				user.setId(rs.getString("id"));
+				user.setName(rs.getString("name"));
+				user.setPassword(rs.getString("password"));
+				
+				users.add(user);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			
+			DBClose.close(conn, pstmt, rs);
+		}
+		
+		return users;
+	}
+	
 	public ArticleVO selectOneArticle(int num) {
 		
 		ArticleVO article = new ArticleVO();

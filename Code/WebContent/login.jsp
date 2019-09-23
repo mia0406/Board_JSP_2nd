@@ -24,19 +24,11 @@
 		out.println("</script>");
 	}
 	else if(user.getPassword().equals(password)){
-		
-		if(id.equals("admin")){		
-			session.setAttribute("id",id);
-			out.println("<script>");
-			out.println("location.href='mainAdmin.jsp'"); 
-			out.println("</script>");
-		}
-		else{			
-			session.setAttribute("id",id); 
-			out.println("<script>");
-			out.println("location.href='main.jsp'"); 
-			out.println("</script>");
-		}		
+			
+		session.setAttribute("id",id); 
+		out.println("<script>");
+		out.println("location.href='main.jsp'"); 
+		out.println("</script>");				
 	}
 	else{
 		out.println("<script>");

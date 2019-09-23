@@ -54,7 +54,7 @@ table tr td{
 <button onclick="location.href='updateRecommand.jsp?num=<%= num%>'">추천</button>
 
 <%
-	if(session.getAttribute("id").equals(article.getWriter())){
+	if(session.getAttribute("id").equals(article.getWriter()) || session.getAttribute("id").equals("admin")){
 %>
 		<button onclick="location.href='delete.jsp?num=<%= num%>'">삭제</button>
 <% 
